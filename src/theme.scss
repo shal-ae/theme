@@ -1,0 +1,23 @@
+@use '~@angular/material' as mat;
+@use 'src/app/square/square-theme' as square;
+@use 'app/show-theme/show-theme-theme' as show-theme;
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$green-palette, 700);
+$my-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn
+  )
+));
+
+@include mat.all-component-themes($my-theme);
+
+@include square.theme($my-theme);
+
+@include show-theme.theme($my-theme);
